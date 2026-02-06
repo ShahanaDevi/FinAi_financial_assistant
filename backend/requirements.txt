@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+python-multipart
+psycopg2-binary
+sqlalchemy
+openai
+python-dotenv
+google-genai
+pytest
+cryptography
