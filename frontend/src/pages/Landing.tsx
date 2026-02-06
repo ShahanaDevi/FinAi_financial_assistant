@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Upload, TrendingUp, BarChart3, Brain, FileText, ChevronDown } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
+import { getApiBaseUrl } from "@/lib/api";
 import {
   Select,
   SelectContent,
@@ -43,7 +44,7 @@ const Landing = () => {
   formData.append("business_type", businessType);
 
   try {
-    const res = await fetch("http://localhost:8000/upload", {
+    const res = await fetch(`${getApiBaseUrl()}/upload`, {
       method: "POST",
       body: formData,
     });

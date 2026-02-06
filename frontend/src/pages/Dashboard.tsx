@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 import FinancialCharts from "@/components/dashboard/FinancialCharts";
+import { getApiBaseUrl } from "@/lib/api";
 import {
   ResponsiveContainer,
   LineChart,
@@ -76,7 +77,7 @@ const Dashboard = () => {
     business_type,
   } = state;
 
-  const apiBaseUrl = "http://localhost:8000";
+  const apiBaseUrl = getApiBaseUrl();
 
   useEffect(() => {
     let isMounted = true;

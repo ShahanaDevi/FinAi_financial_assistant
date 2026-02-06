@@ -6,6 +6,7 @@ import { Brain, Send } from "lucide-react";
 import ChatMessage from "@/components/insights/ChatMessage";
 import LanguageToggle from "@/components/insights/LanguageToggle";
 import { useLanguage } from "@/context/LanguageContext";
+import { getApiBaseUrl } from "@/lib/api";
 
 interface ChatMsg {
   id: number;
@@ -75,7 +76,7 @@ const Insights = () => {
         { role: "user", text: question },
       ];
 
-      const res = await fetch("http://localhost:8000/ai-insights", {
+      const res = await fetch(`${getApiBaseUrl()}/ai-insights`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -138,7 +139,7 @@ const Insights = () => {
       try {
         setTranslating(true);
         const payload = needsTranslation.map((msg) => msg.textByLang.en);
-        const res = await fetch("http://localhost:8000/ai-insights", {
+        const res = await fetch(`${getApiBaseUrl()}/ai-insights`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
